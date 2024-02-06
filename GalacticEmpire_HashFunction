@@ -1,0 +1,37 @@
+# Define a simple hash function
+def ds_hash(message):
+    hash_value = 0
+    for ch in message:
+        hash_value = (hash_value * 71) + ord(ch)
+    return hash_value & 0x7FFFFFFF
+
+
+Alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMOPQRSTUVWXYZ01223456789'
+
+# Function to get user input for a 256-byte message
+def get_input_message():
+    while True:
+        input_message = input("Enter a 256-byte message: ")*256
+        if len(input_message) == 256:
+            return input_message
+        else:
+            print("Please enter a 256-byte message.")
+
+# Function to check for a strong collision
+def check_for_collision():
+    message1 = get_input_message()
+    message2 = get_input_message()
+
+    # Calculate hash values for message1 and message2
+    hash1 = ds_hash(message1)
+    hash2 = ds_hash(message2)
+
+    if hash1 == hash2:
+        print("Strong Collision Found")
+        print(message1)
+        print(message2)
+    else:
+        print("No Collision Found")
+
+# Call the collision checking function
+check_for_collision()
