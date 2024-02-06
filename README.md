@@ -1,1 +1,1 @@
-# CyberProjects
+This Python script defines a simple hash function ds_hash and provides a utility to check for strong collisions. It prompts the user to enter two 256 byte messages and calculates their hash values using the defined hash function. If a strong collision is found (i.e., both messages produce the same hash value), the script displays the messages. Otherwise, it indicates that no collision was found. This tool can be used for basic hash collision analysis and testing.
